@@ -6,13 +6,16 @@ function Card() {
         backgroundImage: "linear-gradient(to bottom right, pink, skyblue)",
         width: "20%",
         margin: "1%",
-        padding: "1%"
+        padding: "1%",
+        borderRadius: "15px",
+        boxShadow: "0px 0px 50px skyblue"
     }
     return (
       <div style={card}>
         <img
         src="https://png.pngtree.com/element_our/20190603/ourlarge/pngtree-shop-store-cartoon-illustration-image_1433180.jpg"
         alt="{data.country}"
+        style={{borderRadius: "15px"}}
         width="100%"
         height="auto"
         />
