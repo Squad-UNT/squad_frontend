@@ -6,18 +6,27 @@ import Store from "./components/Store";
 import Login from "./components/Login";
 import Itempage from "./components/Itempage";
 import Forgotpwd from "./components/Forgotpwd";
+import Changepwd from "./components/Changepwd";
 import { BrowserRouter, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const user_data = localStorage.getItem("user");
+    setUser(user_data ? JSON.parse(user_data) : null);
+  }, []);
+
   return (
     <BrowserRouter>
       <Route path="/" exact component={Header} />
-      <Nav />
+      <Nav user={user} setUser={setUser} />
       <Route path="/" exact component={Search} />
       <Route
         path="/retail"
         exact
-        component={() => <Hall title="Retail Halls" />}
+        component={() => <Hall title="Retail Stores" />}
       />
       <Route
         path="/dining"
@@ -26,8 +35,21 @@ function App() {
       />
       <Route path="/store/:id" exact component={Store} />
       <Route path="/store/item/:id" exact component={Itempage} />
-      <Route path="/login" exact component={Login} />
-      <Route path="/forgot-password" exact component={Forgotpwd} />
+      <Route
+        path="/login"
+        exact
+        component={() => <Login user={user} setUser={setUser} />}
+      />
+      <Route
+        path="/forgot-password"
+        exact
+        component={() => <Forgotpwd user={user} />}
+      />
+      <Route
+        path="/change-password"
+        exact
+        component={() => <Changepwd user={user} />}
+      />
     </BrowserRouter>
   );
 }

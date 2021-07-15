@@ -21,7 +21,7 @@ function Search() {
         <div className="row">
             <div className="col-1"></div>
             <div className="col-4 stores_style">
-                <Link className="navbar-brand text-dark" to="/retail"><h2>Retail Halls</h2></Link>  
+                <Link className="navbar-brand text-dark" to="/retail"><h2>Retail Stores</h2></Link>  
             </div>
             <div className="col-2"></div>
             <div className="col-4 stores_style">
