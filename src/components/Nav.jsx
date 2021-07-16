@@ -11,7 +11,7 @@ function Nav({user, setUser}) {
         buttons = (
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <span className="navbar-brand" style={{fontSize: "25px"}}>Hi {user.email}!</span>
+                        <span className="navbar-brand" style={{fontSize: "24px"}}>Hi {user.email}!</span>
                     </li>
                     <li className="nav-item">
                         <Link to="/change-password">
@@ -37,11 +37,12 @@ function Nav({user, setUser}) {
             <div className="container-fluid">
                 <Link style={{marginLeft: "2%"}} to="/">
                 <img
-        src="https://webassets.unt.edu/unt-foundation/images/unt_lettermark.svg"
-        alt="{data.country}"
-        width="30%"
-        height="auto"
-        /></Link>
+                src="https://webassets.unt.edu/unt-foundation/images/unt_lettermark.svg"
+                alt="{data.country}"
+                width="30%"
+                height="auto"
+                />
+                </Link>
                 <div className="d-flex" style={{marginRight: "2%"}}>
                     {buttons}
                 </div>

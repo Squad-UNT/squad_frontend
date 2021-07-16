@@ -7,6 +7,9 @@ import Login from "./components/Login";
 import Itempage from "./components/Itempage";
 import Forgotpwd from "./components/Forgotpwd";
 import Changepwd from "./components/Changepwd";
+import Additem from "./components/Additem";
+import Updateitem from "./components/Updateitem";
+import Addstore from "./components/Addstore";
 import { BrowserRouter, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
@@ -26,15 +29,30 @@ function App() {
       <Route
         path="/retail"
         exact
-        component={() => <Hall title="Retail Stores" />}
+        component={() => <Hall title="Retail Stores" user={user} />}
       />
       <Route
         path="/dining"
         exact
-        component={() => <Hall title="Dining Halls" />}
+        component={() => <Hall title="Dining Halls" user={user} />}
       />
-      <Route path="/store/:id" exact component={Store} />
-      <Route path="/store/item/:id" exact component={Itempage} />
+      <Route path="/store/:id" exact component={() => <Store user={user} />} />
+      <Route
+        path="/store/item/:id"
+        exact
+        component={() => <Itempage user={user} />}
+      />
+      <Route path="/add-item" exact component={() => <Additem user={user} />} />
+      <Route
+        path="/add-store"
+        exact
+        component={() => <Addstore user={user} />}
+      />
+      <Route
+        path="/update-item/:id"
+        exact
+        component={() => <Updateitem user={user} />}
+      />
       <Route
         path="/login"
         exact
@@ -48,7 +66,7 @@ function App() {
       <Route
         path="/change-password"
         exact
-        component={() => <Changepwd user={user} />}
+        component={() => <Changepwd user={user} setUser={setUser} />}
       />
     </BrowserRouter>
   );

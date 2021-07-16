@@ -1,9 +1,9 @@
 import {Link} from 'react-router-dom';
 
 function Item() {
-    const card = {
+    const item_style = {
         textAlign: "center",
-        backgroundImage: "linear-gradient(to bottom right, pink, skyblue)",
+        backgroundImage: "linear-gradient(to bottom right, skyblue, pink)",
         width: "20%",
         margin: "1%",
         borderRadius: "15px",
@@ -11,7 +11,8 @@ function Item() {
         padding: "1%"
     }
     return (
-      <div style={card}>
+      <div style={item_style}>
+      <Link to="item/:id" className="text-dark" style={{textDecoration: "none"}}>
         <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVzVekznLhvE___KitgzkrFVBa1UHjGhKMwvPexLDHDFMTAH934qkxMVQLBI-aMe1vJV0&usqp=CAU"
         alt="{data.country}"
@@ -19,11 +20,13 @@ function Item() {
         width="100%"
         height="auto"
         />
-        <p>Item name</p>
-        <p>ingredents</p>
-        <p>price</p>
-        <p>cals</p>
-        <Link to="item/:id">view</Link>
+        <hr />
+        <h4>Item Name</h4>
+        <p>Item Price</p>
+        <p>Item Calories</p>
+        <p>Item Ingredients</p>
+        <p>Item Location</p>
+      </Link>
       </div>
     );
   }

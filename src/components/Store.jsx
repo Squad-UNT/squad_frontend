@@ -1,16 +1,29 @@
 import "./Hall.css";
 import Item from "./Item";
+import {Link} from 'react-router-dom';
 
-function Store({title="Store Name"}) {
-      
+function Store({title="Store Name", user}) {
+  let add_item;
+  if(user){
+    add_item = (
+      <div style={{marginLeft: "80%"}}>
+        <Link to="/add-item">
+            <button className="btn btn-success" type="button">Add Item</button>
+        </Link>
+      </div>
+    )
+  } else {
+    add_item = (
+      <br />
+    )
+  }
   return (
     <div className="text-center">
         <br />
         <h1>{title}</h1>
-        <br />
+        {add_item}
         <h1><u>MENU</u></h1>
         <div className="cards">
-            <Item />
             <Item />
             <Item />
             <Item />

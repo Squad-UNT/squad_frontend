@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 
 function Card() {
-    const card = {
+    const card_style = {
         textAlign: "center",
         backgroundImage: "linear-gradient(to bottom right, pink, skyblue)",
         width: "20%",
@@ -11,7 +11,8 @@ function Card() {
         boxShadow: "0px 0px 50px skyblue"
     }
     return (
-      <div style={card}>
+      <div style={card_style}>
+        <Link to="store/:id" className="text-dark" style={{textDecoration: "none"}}>
         <img
         src="https://png.pngtree.com/element_our/20190603/ourlarge/pngtree-shop-store-cartoon-illustration-image_1433180.jpg"
         alt="{data.country}"
@@ -19,9 +20,12 @@ function Card() {
         width="100%"
         height="auto"
         />
-        <p>store name</p>
-        <p>location</p>
-        <Link to="store/:id">view</Link>
+        <hr />
+        <h4>Store Name</h4>
+        <p>Store Entry Price</p>
+        <p>Store Timings</p>
+        <p>Store Location</p>
+        </Link>
       </div>
     );
   }

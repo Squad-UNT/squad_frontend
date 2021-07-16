@@ -1,4 +1,5 @@
-import {Link, Redirect} from 'react-router-dom';
+import {Link, Redirect, useHistory} from 'react-router-dom';
+import { useState } from "react";
 import axios from 'axios';
 
 function Login({user, setUser}) {
@@ -9,26 +10,33 @@ function Login({user, setUser}) {
         padding: "4%",
         boxShadow: "0px 0px 100px skyblue"
     }
-
+    const [error, setError] = useState((<div></div>));
     const creds = {
         email: null,
-        password: null
+        password: ""
     };
-
+    let history = useHistory();
     const LoginSubmit = e => {
         e.preventDefault();
+        if(creds.password.length < 8){
+            setError((<div className="alert alert-danger">
+                    Invalid Email or Password!
+                </div>));
+        } else {
         axios.post('login', creds).then(
         res => {
             if(res.status === 200){
                 localStorage.setItem('user', JSON.stringify(creds));
                 setUser(creds);
+                history.goBack();
             }
         }
         ).catch(
             err => {
-            console.log(err);
+                console.log(err);
         }
         )
+        }
     };
 
     if(user){
@@ -40,6 +48,7 @@ function Login({user, setUser}) {
             <form className="text-center" style={page_style} onSubmit={LoginSubmit}>
                 <h3>Log In</h3>
                 <br/>
+                {error}
                 <div className="form-group" style={{marginBottom:"10px"}}>
                     <input type="email" className="form-control" placeholder="Enter Email" onChange={e=> creds.email = e.target.value} required/>
                 </div>

@@ -1,6 +1,7 @@
 import {Redirect} from 'react-router-dom';
+import axios from 'axios';
 
-function Changepwd({user}) {
+function Changepwd({user, setUser}) {
     const page_style = {
         margin: "10% 35% 0 35%",
         backgroundImage: "linear-gradient(to bottom right, skyblue, pink)",
@@ -8,14 +9,30 @@ function Changepwd({user}) {
         padding: "4%",
         boxShadow: "0px 0px 100px skyblue"
     }
+
+    const changepwdSubmit = e => {
+        e.preventDefault();
+        axios.post('login', {}).then(
+        res => {
+            if(res.status === 200){
+                localStorage.clear();
+                setUser(null);
+            }
+        }
+        ).catch(
+            err => {
+            console.log(err);
+        }
+        )
+    };
     
     if(!user){
-        return <Redirect to={'/'} />;
+        return <Redirect to={'/login'} />;
     }
 
     return ( 
         <div>
-            <form className="text-center" style={page_style}>
+            <form className="text-center" style={page_style} onSubmit={changepwdSubmit}>
                 <h3>Change Password</h3>
                 <br/>
                 <div className="form-group" style={{marginBottom:"10px"}}>
