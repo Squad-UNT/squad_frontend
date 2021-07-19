@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 function Store({title="Store Name", user}) {
   let add_item;
-  if(user){
+  if(user && !user.is_super_admin){
     add_item = (
       <div style={{marginLeft: "80%"}}>
         <Link to="/add-item">

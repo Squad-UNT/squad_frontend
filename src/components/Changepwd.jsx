@@ -30,6 +30,10 @@ function Changepwd({user, setUser}) {
         return <Redirect to={'/login'} />;
     }
 
+    if(user && user.is_super_admin){
+        return <Redirect to={'/'} />;
+    }
+
     return ( 
         <div>
             <form className="text-center" style={page_style} onSubmit={changepwdSubmit}>

@@ -14,7 +14,7 @@ function Itempage({user}) {
     const onDelete = () => {
         history.goBack();
     }
-    if(user){
+    if(user && !user.is_super_admin){
         update_item = (
             <div className="col-12" style={{marginTop: "3%"}}>
                 <div className="row">

@@ -7,15 +7,15 @@ function Nav({user, setUser}) {
         localStorage.clear();
         setUser(null);
     };
-    if(user) {
+    if(user && user.is_super_admin) {
         buttons = (
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <span className="navbar-brand" style={{fontSize: "24px"}}>Hi {user.email}!</span>
                     </li>
                     <li className="nav-item">
-                        <Link to="/change-password">
-                        <button className="btn btn-dark justify-content-end" type="button">Change Password</button>
+                        <Link to="/add-store">
+                        <button className="btn btn-dark justify-content-end" type="button">Add Store</button>
                         </Link>
                     </li>
                     <li className="nav-item">
@@ -25,6 +25,24 @@ function Nav({user, setUser}) {
                     </li>      
                  </ul>
         )
+    } else if(user) {
+        buttons = (
+            <ul className="navbar-nav">
+                <li className="nav-item">
+                    <span className="navbar-brand" style={{fontSize: "24px"}}>Hi {user.email}!</span>
+                </li>
+                <li className="nav-item">
+                    <Link to="/change-password">
+                    <button className="btn btn-dark justify-content-end" type="button">Change Password</button>
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/">
+                    <button className="btn btn-dark justify-content-end" type="button" style={{marginLeft:"5px"}} onClick={LogoutSubmit}>Log Out</button>
+                    </Link>
+                </li>      
+             </ul>
+    )
     } else {
         buttons = (
             <Link to="/login">
