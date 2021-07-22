@@ -29,12 +29,12 @@ function App() {
       <Route
         path="/retail"
         exact
-        component={() => <Hall title="Retail Stores" user={user} />}
+        component={() => <Hall title="Retail Stores" />}
       />
       <Route
         path="/dining"
         exact
-        component={() => <Hall title="Dining Halls" user={user} />}
+        component={() => <Hall title="Dining Halls" />}
       />
       <Route path="/store/:id" exact component={() => <Store user={user} />} />
       <Route

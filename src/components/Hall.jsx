@@ -1,19 +1,33 @@
 import "./Hall.css";
 import Card from "./Card";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 
-function Hall({title, user}) {
+function Hall({title}) {
+  const [data, setData] = useState([]);
+  const updateData = () => {
+      axios.post('getstores', {is_retail: title === "Retail Stores"}).then(
+        res => {
+            if(res.status === 200) setData(res.data);
+        }
+        ).catch(
+            (error) => { console.log(error); }
+        )
+  };
+
+  useEffect(() => {
+    updateData();
+  }, []);
+
   return (
     <div className="text-center">
         <br />
         <h1>{title}</h1>
         <br />
         <div className="cards">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+        {data.map((entry) => (
+          <Card data={entry} />
+        ))}
         </div>
     </div>
   );

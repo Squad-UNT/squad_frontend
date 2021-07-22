@@ -82,7 +82,7 @@ function Addstore({user}) {
                     <input type="text" className="form-control" placeholder="Store Name" name="name" onChange={onInputChange} required/>
                 </div>
                 <div className="form-group" style={{marginBottom:"10px"}}>
-                    <input type="number" className="form-control" placeholder="Store Entry Price" name="price" onChange={onInputChange} required/>
+                    <input type="number" step="0.01" className="form-control" placeholder="Store Entry Price" name="price" onChange={onInputChange} required/>
                 </div>
                 <div className="form-group" style={{marginBottom:"10px"}}>
                     <label>Upload Store Image</label>
@@ -104,7 +104,7 @@ function Addstore({user}) {
                 <div className="form-group" style={{marginBottom:"15px"}}>
                     <input type="text" className="form-control" placeholder="Store Location" name="location" onChange={onInputChange} required/>
                 </div>
-                <button type="submit" className="btn btn-success btn-block">Add Item</button>
+                <button type="submit" className="btn btn-success btn-block">Add Store</button>
             </form>
         </div>
     );

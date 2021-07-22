@@ -32,7 +32,7 @@ function Login({user, setUser}) {
             }
             ).catch(
                 () => { setError((<div className="alert alert-danger">
-                Invalid Email or Password!
+                Something Went Wrong! Try Later.
                 </div>)); }
             )
     };

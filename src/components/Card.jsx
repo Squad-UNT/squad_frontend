@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 
-function Card() {
+function Card({data}) {
     const card_style = {
         textAlign: "center",
         backgroundImage: "linear-gradient(to bottom right, pink, skyblue)",
@@ -12,19 +12,19 @@ function Card() {
     }
     return (
       <div style={card_style}>
-        <Link to="store/:id" className="text-dark" style={{textDecoration: "none"}}>
+        <Link to={`store/${data.store_id}`} className="text-dark" style={{textDecoration: "none"}}>
         <img
-        src="https://png.pngtree.com/element_our/20190603/ourlarge/pngtree-shop-store-cartoon-illustration-image_1433180.jpg"
-        alt="{data.country}"
+        src={data.store_image ? data.store_image : "https://png.pngtree.com/element_our/20190603/ourlarge/pngtree-shop-store-cartoon-illustration-image_1433180.jpg"}
+        alt={data.store_image}
         style={{borderRadius: "15px"}}
         width="100%"
-        height="auto"
+        height="50%"
         />
         <hr />
-        <h4>Store Name</h4>
-        <p>Store Entry Price</p>
-        <p>Store Timings</p>
-        <p>Store Location</p>
+        <h4>{data.store_name}</h4>
+        <strong>{data.hall_price ? "$" + data.hall_price : ""}</strong>
+        <p>{data.store_timing}</p>
+        <p>{data.store_location}</p>
         </Link>
       </div>
     );
