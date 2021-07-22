@@ -10,7 +10,8 @@ import Changepwd from "./components/Changepwd";
 import Additem from "./components/Additem";
 import Updateitem from "./components/Updateitem";
 import Addstore from "./components/Addstore";
-import { BrowserRouter, Route } from "react-router-dom";
+import Pagenotfound from "./components/Pagenotfound";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 function App() {
@@ -25,49 +26,60 @@ function App() {
     <BrowserRouter>
       <Route path="/" exact component={Header} />
       <Nav user={user} setUser={setUser} />
-      <Route path="/" exact component={Search} />
-      <Route
-        path="/retail"
-        exact
-        component={() => <Hall title="Retail Stores" />}
-      />
-      <Route
-        path="/dining"
-        exact
-        component={() => <Hall title="Dining Halls" />}
-      />
-      <Route path="/store/:id" exact component={() => <Store user={user} />} />
-      <Route
-        path="/store/item/:id"
-        exact
-        component={() => <Itempage user={user} />}
-      />
-      <Route path="/add-item" exact component={() => <Additem user={user} />} />
-      <Route
-        path="/add-store"
-        exact
-        component={() => <Addstore user={user} />}
-      />
-      <Route
-        path="/update-item/:id"
-        exact
-        component={() => <Updateitem user={user} />}
-      />
-      <Route
-        path="/login"
-        exact
-        component={() => <Login user={user} setUser={setUser} />}
-      />
-      <Route
-        path="/forgot-password"
-        exact
-        component={() => <Forgotpwd user={user} />}
-      />
-      <Route
-        path="/change-password"
-        exact
-        component={() => <Changepwd user={user} setUser={setUser} />}
-      />
+      <Switch>
+        <Route path="/" exact component={Search} />
+        <Route
+          path="/retail"
+          exact
+          component={() => <Hall title="Retail Stores" />}
+        />
+        <Route
+          path="/dining"
+          exact
+          component={() => <Hall title="Dining Halls" />}
+        />
+        <Route
+          path="/store/:id"
+          exact
+          component={() => <Store user={user} />}
+        />
+        <Route
+          path="/store/item/:id"
+          exact
+          component={() => <Itempage user={user} />}
+        />
+        <Route
+          path="/add-item"
+          exact
+          component={() => <Additem user={user} />}
+        />
+        <Route
+          path="/add-store"
+          exact
+          component={() => <Addstore user={user} />}
+        />
+        <Route
+          path="/update-item/:id"
+          exact
+          component={() => <Updateitem user={user} />}
+        />
+        <Route
+          path="/login"
+          exact
+          component={() => <Login user={user} setUser={setUser} />}
+        />
+        <Route
+          path="/forgot-password"
+          exact
+          component={() => <Forgotpwd user={user} />}
+        />
+        <Route
+          path="/change-password"
+          exact
+          component={() => <Changepwd user={user} setUser={setUser} />}
+        />
+        <Pagenotfound />
+      </Switch>
     </BrowserRouter>
   );
 }
