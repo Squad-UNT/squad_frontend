@@ -6,7 +6,7 @@ import axios from 'axios';
 function Hall({title}) {
   const [data, setData] = useState([]);
   const updateData = () => {
-      axios.post('getstores', {is_retail: title === "Retail Stores"}).then(
+      axios.post('getstores', {is_retail: title === "Retail Stores" ? true : false}).then(
         res => {
             if(res.status === 200) setData(res.data);
         }

@@ -9,6 +9,7 @@ import Forgotpwd from "./components/Forgotpwd";
 import Changepwd from "./components/Changepwd";
 import Additem from "./components/Additem";
 import Updateitem from "./components/Updateitem";
+import Updatestore from "./components/Updatestore";
 import Addstore from "./components/Addstore";
 import Pagenotfound from "./components/Pagenotfound";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -57,6 +58,11 @@ function App() {
           path="/add-store"
           exact
           component={() => <Addstore user={user} />}
+        />
+        <Route
+          path="/update-store/:id"
+          exact
+          component={() => <Updatestore user={user} />}
         />
         <Route
           path="/update-item/:id"

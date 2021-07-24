@@ -1,6 +1,6 @@
 import "./Hall.css";
 import Item from "./Item";
-import {Link, useParams} from 'react-router-dom';
+import {Link, useParams, useHistory} from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from "react";
 
@@ -13,13 +13,35 @@ function Store({user}) {
     boxShadow: "0px 0px 50px skyblue"
   }
   const { id } =useParams();
+  let history = useHistory();
   let add_item;
+  const onDelete = () => {
+    axios.post('deletestore', {store_id: id}, {
+        headers: { 'token': user.token }
+      }).then(
+        res => {
+            if(res.status === 200) history.goBack();
+        }
+        ).catch(
+            (error) => { console.log(error); }
+        )
+    
+  }
   if(user && !user.is_super_admin && parseInt(id) === user.store_id){
     add_item = (
-      <div style={{marginTop: "7%"}}>
+      <div style={{marginTop: "10%"}}>
         <Link to="/add-item">
             <button className="btn btn-success" type="button">Add Item</button>
         </Link>
+      </div>
+    )
+  } else if(user && user.is_super_admin){
+    add_item = (
+      <div style={{marginTop: "5%"}}>
+        <Link to={`/update-store/${id}`}>
+            <button className="btn btn-success" type="button">Update store</button>
+        </Link>
+        <button className="btn btn-danger" style={{marginTop: "5%"}} type="button" onClick={onDelete}>Delete store</button>
       </div>
     )
   } else {
@@ -54,13 +76,13 @@ function Store({user}) {
             height="auto"
             />
             </div>
-            <div className="col-5" style={{textAlign: "left"}}>
+            <div className="col-6" style={{textAlign: "left"}}>
                 <h2>{data.store ? data.store.store_name : "Loading..." }</h2>
                 <p><strong>{data.store ? data.store.hall_price ? "$" + data.store.hall_price + "  |  " : "" : ""}</strong>
                 {data.store ? data.store.store_timing : ""}<br />
                 {data.store ? data.store.store_location : ""}</p>
             </div>
-            <div className="col-3" style={{textAlign: "left"}}>{add_item}</div>
+            <div className="col-2" style={{textAlign: "left"}}>{add_item}</div>
         </div>
         <h1><u>MENU</u></h1>
         <div className="cards">
