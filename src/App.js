@@ -1,3 +1,5 @@
+// This file contains code to all frontend routing.
+
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Search from "./components/Search";

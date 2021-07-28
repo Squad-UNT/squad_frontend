@@ -1,3 +1,5 @@
+// This file contains code to add item page.
+
 import {Redirect, useHistory} from 'react-router-dom';
 import axios from 'axios';
 import { uploadFile } from 'react-s3';

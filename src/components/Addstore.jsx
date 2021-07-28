@@ -1,3 +1,5 @@
+// This file contains code to get store page.
+
 import {Redirect, useHistory} from 'react-router-dom';
 import { useState } from "react";
 import { uploadFile } from 'react-s3';

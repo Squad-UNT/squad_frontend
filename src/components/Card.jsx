@@ -1,3 +1,5 @@
+// This file contains code to display store.
+
 import {Link} from 'react-router-dom';
 
 function Card({data}) {

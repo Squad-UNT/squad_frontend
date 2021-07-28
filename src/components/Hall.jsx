@@ -1,3 +1,5 @@
+// This file contains code to halls page.
+
 import "./Hall.css";
 import Card from "./Card";
 import React, { useState, useEffect } from "react";

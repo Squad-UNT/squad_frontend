@@ -1,3 +1,5 @@
+// This file contains code to header display.
+
 function Header() {
     const header_style = {
         margin: 0,

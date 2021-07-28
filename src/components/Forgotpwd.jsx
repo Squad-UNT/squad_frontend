@@ -1,3 +1,5 @@
+// This file contains code to forgot password page.
+
 import {Redirect} from 'react-router-dom';
 import { useState } from "react";
 import axios from 'axios';
