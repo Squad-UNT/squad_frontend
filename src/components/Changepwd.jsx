@@ -21,18 +21,13 @@ function Changepwd({user, setUser}) {
         e.preventDefault();
         axios.post('change-password', password).then(
         res => {
-            if(res.status === 200){
                 localStorage.clear();
                 setUser(null);
-            } else {
-                setError((<div className="alert alert-danger">
-                Password Not Match!
-                </div>));
-            }
         }
         ).catch(
-            () => { setError((<div className="alert alert-danger">
-                Something Went Wrong! Try Later.
+            error => { 
+                setError((<div className="alert alert-danger">
+                {error.response ? error.response.data.message : "Something Went Wrong! Try Later."}
                 </div>)); }
         )
     };

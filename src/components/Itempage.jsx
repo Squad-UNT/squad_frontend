@@ -3,13 +3,20 @@ import axios from 'axios';
 import { useState, useEffect } from "react";
 
 function Itempage({user}) {
+    const title_style = {
+        backgroundImage: "linear-gradient(to bottom right, pink, skyblue)",
+        margin: "1%",
+        padding: "1%",
+        borderRadius: "15px",
+        boxShadow: "0px 0px 50px skyblue"
+      }
     const { id } =useParams();
     const [data, setData] = useState({});
     const item = {
         textAlign: "center",
         backgroundImage: "linear-gradient(to bottom right, pink, skyblue)",
         padding: "5%",
-        margin: "7% 10% 0 10%",
+        margin: "5% 10% 0 10%",
         borderRadius: "25px",
         boxShadow: "0px 0px 100px skyblue"
     }
@@ -59,7 +66,27 @@ function Itempage({user}) {
         )
       }
     return ( 
-        <div className="container">
+        <div>
+            <br />
+            <div className="row" style={title_style}>
+            <div className="col-3"></div>
+            <div className="col-1">
+            <img
+            src={data.store ? data.store.store_image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVzVekznLhvE___KitgzkrFVBa1UHjGhKMwvPexLDHDFMTAH934qkxMVQLBI-aMe1vJV0&usqp=CAU"}
+            alt={data.item_image}
+            style={{borderRadius: "15px"}}
+            width="100%"
+            height="auto"
+            />
+            </div>
+            <div className="col-6" style={{textAlign: "left"}}>
+                <h2>{data.store ? data.store.store_name : "Loading..." }</h2>
+                <p><strong>{data.store ? data.store.hall_price ? "$" + data.store.hall_price + "  |  " : "" : ""}</strong>
+                {data.store ? data.store.store_timing : ""}<br />
+                {data.store ? data.store.store_location : ""}</p>
+            </div>
+            <div className="col-2" style={{textAlign: "left"}}></div>
+            </div>
         <div className="row" style={item}>
             <div className="col-6">
             <img

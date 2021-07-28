@@ -56,7 +56,7 @@ function Nav({user, setUser}) {
                 <Link style={{marginLeft: "2%"}} to="/">
                 <img
                 src="https://webassets.unt.edu/unt-foundation/images/unt_lettermark.svg"
-                alt="{data.country}"
+                alt="UNT"
                 width="30%"
                 height="auto"
                 />

@@ -20,20 +20,15 @@ function Login({user, setUser}) {
         e.preventDefault();
         axios.post('login', creds).then(
             res => {
-                if(res.status === 200){
                     localStorage.setItem('user', JSON.stringify(res.data));
                     setUser(res.data);
                     history.goBack();
-                } else {
-                    setError((<div className="alert alert-danger">
-                    Invalid Email or Password!
-                    </div>));
-                }
             }
             ).catch(
-                () => { setError((<div className="alert alert-danger">
-                Something Went Wrong! Try Later.
-                </div>)); }
+                error => { 
+                    setError((<div className="alert alert-danger">
+                    {error.response ? error.response.data.message : "Something Went Wrong! Try Later."}
+                    </div>)); }
             )
     };
 
