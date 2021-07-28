@@ -21,8 +21,9 @@ function Item({data}) {
         height="50%"
         />
         <hr />
+        <div style={{alignment: "right"}}><button type="text" class={data.item_availability ? "btn btn-success btn-sm" : "btn btn-danger btn-sm"} style={{borderRadius: "50px", fontSize:"10px"}}>{data.item_availability ? "available" : "unavailable"}</button></div>
         <h4>{data.item_name}</h4>
-        <strong>{data.item_price ? "$" + data.item_price : ""}</strong>
+        <strong>{data.item_price ? "$" + data.item_price : ""}</strong><br />
         <strong>{data.item_calories} Cals</strong>
         <p>{data.item_ingredients}</p>
         <p>{data.available_at}</p>
