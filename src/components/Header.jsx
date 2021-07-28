@@ -11,7 +11,7 @@ function Header() {
     };
     return ( 
         <div className="jumbotron text-center" style={header_style}>
-            <h1>SQUAD fOOD APP</h1>
+            <h1>UNT Food Dining APP</h1>
             <h4>Single place to search for food!</h4> 
         </div>
     );
