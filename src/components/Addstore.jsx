@@ -20,6 +20,7 @@ function Addstore({user}) {
         padding: "3% 5% 3% 5%",
         boxShadow: "0px 0px 100px skyblue"
     }
+    const [error, setError] = useState((<div></div>));
     const [file, setFile] = useState(null);
     const [formdata, setFormdata] = useState({
         email: '',
@@ -43,12 +44,16 @@ function Addstore({user}) {
                         }
                     }
                     ).catch(
-                        err => {
-                        console.log(err);
-                    }
+                        error => { 
+                            setError((<div className="alert alert-danger">
+                            {error.response ? error.response.data.message : "Something Went Wrong! Try Later."}
+                            </div>)); }
                     )
                 })
-            .catch(err => console.error(err))
+            .catch( error => { 
+                setError((<div className="alert alert-danger">
+                "Unable to upload Image."
+                </div>)); })
     };
 
     const handleImage = e => {
@@ -76,6 +81,7 @@ function Addstore({user}) {
             <form className="text-center" style={page_style} onSubmit={AddstoreSubmit}>
                 <h3>Add Store</h3>
                 <br/>
+                {error}
                 <div className="form-group" style={{marginBottom:"10px"}}>
                     <input type="email" className="form-control" placeholder="Store Admin Email" name="email" onChange={onInputChange} required/>
                 </div>

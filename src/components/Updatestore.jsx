@@ -18,6 +18,7 @@ function Updatestore({user}) {
         padding: "3% 5% 3% 5%",
         boxShadow: "0px 0px 100px skyblue"
     }
+    const [error, setError] = useState((<div></div>));
     const { id } =useParams();
     const [file, setFile] = useState(null);
     const [formdata, setFormdata] = useState({
@@ -40,10 +41,16 @@ function Updatestore({user}) {
                         if(res.status === 200) history.goBack();
                     }
                     ).catch(
-                        err => { console.log(err); }
+                        error => { 
+                            setError((<div className="alert alert-danger">
+                            {error.response ? error.response.data.message : "Something Went Wrong! Try Later."}
+                            </div>)); }
                     )
                 }
-        ).catch( err => console.log(err))
+        ).catch( error => { 
+            setError((<div className="alert alert-danger">
+            "Unable to upload Image."
+            </div>)); })
             }
     else { 
     axios.post('updatestore', {...formdata , id: id}, {
@@ -53,7 +60,10 @@ function Updatestore({user}) {
                 if(res.status === 200) history.goBack();
             }
             ).catch(
-                err => { console.log(err); }
+                error => { 
+                    setError((<div className="alert alert-danger">
+                    {error.response ? error.response.data.message : "Something Went Wrong! Try Later."}
+                    </div>)); }
             )
     }
     };
@@ -104,6 +114,7 @@ function Updatestore({user}) {
             <form className="text-center" style={page_style} onSubmit={UpdatestoreSubmit}>
                 <h3>Update Store</h3>
                 <br/>
+                {error}
                 <div className="form-group" style={{marginBottom:"10px"}}>
                     <input type="email" className="form-control" placeholder="Store Admin Email" name="email" value={formdata.email} onChange={onInputChange} required/>
                 </div>
