@@ -8,8 +8,8 @@ import axios from 'axios';
 const config = {
     bucketName: "squadunt",
     region: "us-east-2",
-    accessKeyId: "AKIAYHYBG62CO5574AOX",
-    secretAccessKey: "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",
+    accessKeyId: "AKIAYHYBG62CHBSGKEW3",
+    secretAccessKey: "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",
 }
 
 function Addstore({user}) {
