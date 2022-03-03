@@ -61,8 +61,9 @@ function Nav({user, setUser}) {
                 height="auto"
                 />
                 </Link>
-                <div className="d-flex" style={{marginRight: "2%"}}>
+                <div className="d-flex" style={{marginRight: "1%"}}>
                     {buttons}
+                    <div id="google_translate_element" style={{marginLeft: "5px", padding: "0 5px", backgroundColor: "white", borderRadius: "4px"}}></div>
                 </div>
             </div>
         </nav>
