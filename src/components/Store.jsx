@@ -10,7 +10,7 @@ function Store({user}) {
     margin: "1%",
     padding: "1%",
     borderRadius: "15px",
-    boxShadow: "0px 0px 50px skyblue"
+    boxShadow: "0px 0px 30px skyblue"
   }
   const { id } =useParams();
   let history = useHistory();
@@ -66,17 +66,17 @@ function Store({user}) {
     <div className="text-center">
         <br />
         <div className="row" style={title_style}>
-            <div className="col-3"></div>
+            <div className="col-4"></div>
             <div className="col-1">
             <img
             src={data.store ? data.store.store_image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVzVekznLhvE___KitgzkrFVBa1UHjGhKMwvPexLDHDFMTAH934qkxMVQLBI-aMe1vJV0&usqp=CAU"}
             alt={data.item_image}
             style={{borderRadius: "15px"}}
             width="100%"
-            height="auto"
+            height="100px"
             />
             </div>
-            <div className="col-6" style={{textAlign: "left"}}>
+            <div className="col-5" style={{textAlign: "left"}}>
                 <h2>{data.store ? data.store.store_name : "Loading..." }</h2>
                 <p><strong>{data.store ? data.store.hall_price ? "$" + data.store.hall_price + "  |  " : "" : ""}</strong>
                 {data.store ? data.store.store_timing : ""}<br />

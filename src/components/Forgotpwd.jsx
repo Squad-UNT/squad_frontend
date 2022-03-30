@@ -18,13 +18,13 @@ function Forgotpwd({user}) {
         e.preventDefault();
         axios.post('forgot-password', {email}).then(
             res => {
-                    setError((<div className="alert alert-success">
+                    setError((<div className="alert alert-success"><i class="fa fa-paper-plane" style={{marginRight: "5px"}} aria-hidden="true"></i>
                     New Password sent to Email Successfully!
                     </div>));
             }
             ).catch(
                 error => { 
-                setError((<div className="alert alert-danger">
+                setError((<div className="alert alert-danger"><i class="fa fa-exclamation-triangle" style={{marginRight: "5px"}} aria-hidden="true"></i>
                 {error.response ? error.response.data.message : "Something Went Wrong! Try Later."}
                 </div>)); }
             )

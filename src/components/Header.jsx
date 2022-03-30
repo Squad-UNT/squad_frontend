@@ -3,8 +3,7 @@
 function Header() {
     const header_style = {
         margin: 0,
-        padding: '1%',
-        fontStyle: "italic",
+        padding: '0.5%',
         color: "white",
         backgroundSize: "100%",
         backgroundPosition: "center center",
@@ -13,8 +12,8 @@ function Header() {
     };
     return ( 
         <div className="jumbotron text-center" style={header_style}>
-            <h1>UNT Food Dining APP</h1>
-            <h4>Single place to search for food!</h4> 
+            <h1 style={{fontFamily: "Allerta Stencil"}}>UNT Foodpedia</h1>
+            <h4><i>Single place to search for food!</i></h4> 
         </div>
     );
 }

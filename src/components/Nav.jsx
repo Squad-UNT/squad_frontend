@@ -53,17 +53,16 @@ function Nav({user, setUser}) {
     return ( 
         <nav className="navbar navbar-expand-sm bg-success navbar-dark sticky-top">
             <div className="container-fluid">
-                <Link style={{marginLeft: "2%"}} to="/">
+                <Link style={{marginLeft: "1%"}} to="/">
                 <img
-                src="https://webassets.unt.edu/unt-foundation/images/unt_lettermark.svg"
-                alt="UNT"
-                width="30%"
+                src="logo.png"
+                alt="Foodpedia"
+                width="20%"
                 height="auto"
                 />
                 </Link>
                 <div className="d-flex" style={{marginRight: "1%"}}>
                     {buttons}
-                    <div id="google_translate_element" style={{marginLeft: "5px", padding: "0 5px", backgroundColor: "white", borderRadius: "4px"}}></div>
                 </div>
             </div>
         </nav>

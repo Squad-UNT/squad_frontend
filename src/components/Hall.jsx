@@ -24,8 +24,7 @@ function Hall({title}) {
   return (
     <div className="text-center">
         <br />
-        <h1>{title}</h1>
-        <br />
+        <h1><u>{title}</u></h1>
         <div className="cards">
         {data.map((entry) => (
           <Card data={entry} />

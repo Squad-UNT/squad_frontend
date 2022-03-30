@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function Login({user, setUser}) {
     const page_style = {
-        margin: "10% 35% 0 35%",
+        margin: "8% 35% 0 35%",
         backgroundImage: "linear-gradient(to bottom right, skyblue, pink)",
         borderRadius: "25px",
         padding: "4%",
@@ -26,7 +26,7 @@ function Login({user, setUser}) {
             }
             ).catch(
                 error => { 
-                    setError((<div className="alert alert-danger">
+                    setError((<div className="alert alert-danger"><i class="fa fa-exclamation-triangle" style={{marginRight: "5px"}} aria-hidden="true"></i>
                     {error.response ? error.response.data.message : "Something Went Wrong! Try Later."}
                     </div>)); }
             )
@@ -58,7 +58,7 @@ function Login({user, setUser}) {
                 </div>
                 <button type="submit" className="btn btn-success btn-block">Log In</button>
                 <p className="forgot-password" style={{marginTop:"5px"}}>
-                    <Link to="/forgot-password">Forgot password?</Link>
+                    <Link to="/forgot-password" style={{color: "black"}}>Forgot password?</Link>
                 </p>
             </form>
         </div>

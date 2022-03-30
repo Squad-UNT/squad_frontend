@@ -28,7 +28,7 @@ function Changepwd({user, setUser}) {
         }
         ).catch(
             error => { 
-                setError((<div className="alert alert-danger">
+                setError((<div className="alert alert-danger"><i class="fa fa-exclamation-triangle" style={{marginRight: "5px"}} aria-hidden="true"></i>
                 {error.response ? error.response.data.message : "Something Went Wrong! Try Later."}
                 </div>)); }
         )
