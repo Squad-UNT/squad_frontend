@@ -82,7 +82,7 @@ function Store({user}) {
                 {data.store ? data.store.store_timing : ""}<br />
                 {data.store ? data.store.store_location : ""}</p>
             </div>
-            <div className="col-2" style={{textAlign: "left"}}>{add_item}</div>
+            <div className="col-2" style={{float: "left", padding: "0px 25px"}}>{add_item}</div>
         </div>
         <h1><u>MENU</u></h1>
         <div className="cards">

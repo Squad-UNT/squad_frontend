@@ -10,7 +10,8 @@ function Itempage({user}) {
         borderRadius: "15px",
         boxShadow: "0px 0px 30px skyblue"
       }
-    const { id } =useParams();
+    const { id } = useParams();
+    const [pathname, setPathname] = useState(id);
     const [data, setData] = useState({});
     const item = {
         textAlign: "center",
@@ -48,6 +49,11 @@ function Itempage({user}) {
     useEffect(() => {
       updateData();
     }, []);
+
+    if(id !== pathname){
+        setPathname(id);
+        updateData();
+    }
 
     if(user && !user.is_super_admin && data.store_id === user.store_id){
         update_item = (

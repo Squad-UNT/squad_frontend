@@ -2,7 +2,7 @@
 
 import Header from "./components/Header";
 import Nav from "./components/Nav";
-import Search from "./components/Search";
+import Home from "./components/Home";
 import Hall from "./components/Hall";
 import Store from "./components/Store";
 import Login from "./components/Login";
@@ -30,7 +30,7 @@ function App() {
       <Route path="/" exact component={Header} />
       <Nav user={user} setUser={setUser} />
       <Switch>
-        <Route path="/" exact component={Search} />
+        <Route path="/" exact component={Home} />
         <Route
           path="/retail"
           exact
